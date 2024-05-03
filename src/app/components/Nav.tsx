@@ -9,28 +9,28 @@ export default function Nav() {
 	const pathname = usePathname();
 
 	useEffect(() => {
-		if (localStorage.getItem("user")) {
-			const user = JSON.parse(localStorage.getItem("user") || "");
+		const userJson = localStorage.getItem("user");
+		if (userJson) {
+			const user = JSON.parse(userJson);
 			setDisplayName(user.displayName);
 		}
 	}, []);
 
 	return (
-		<nav className='w-full py-4 border-b-2 px-8 text-center flex items-center justify-between sticky top-0 bg-[#f5f7ff]'>
-			<Link href='/' className='text-2xl font-bold'>
+		<nav className="w-full py-4 border-b-2 px-8 text-center flex items-center justify-between sticky top-0 bg-[#f5f7ff]">
+			<Link href="/" className="text-2xl font-bold">
 				Blog
 			</Link>
 			{displayName ? (
-				<div className='flex items-center gap-5'>
-					<p className='text-sm font-semibold'>{displayName}</p>
+				<div className="flex items-center gap-5">
+					<p className="text-sm font-semibold">{displayName}</p>
 					{pathname !== "/posts/create" && (
-						<Link href='/posts/create' className='underline text-blue-500'>
+						<Link href="/posts/create" className="underline text-blue-500">
 							Create Post
 						</Link>
 					)}
-
 					<button
-						className='bg-red-500 text-white px-6 py-3 rounded-md'
+						className="bg-red-500 text-white px-6 py-3 rounded-md"
 						onClick={handleSignOut}
 					>
 						Log Out
@@ -38,8 +38,8 @@ export default function Nav() {
 				</div>
 			) : (
 				<Link
-					href='/login'
-					className='bg-blue-500 text-white px-8 py-3 rounded-md'
+					href="/login"
+					className="bg-blue-500 text-white px-8 py-3 rounded-md"
 				>
 					Sign in
 				</Link>
