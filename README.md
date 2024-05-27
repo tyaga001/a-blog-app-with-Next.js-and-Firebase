@@ -28,4 +28,9 @@ The application makes use of the following:
 - Copy your firebase config into the `firebase.ts` file.
 - Set up the Firebase features on your console.
 
+## Blog
+
+- [How to Create a Blog with Next.js and Firebase](https://theankurtyagi.com/how-to-create-blog-with-nextjs-and-firebase/)
+
+
 
